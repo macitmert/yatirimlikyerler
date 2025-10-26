@@ -152,7 +152,7 @@ export default function Home() {
     }
     
     const message = getWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/905551234567?text=${message}`;
+    const whatsappUrl = `https://wa.me/905407208080?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -168,8 +168,8 @@ export default function Home() {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-md md:max-w-2xl lg:max-w-2xl mx-auto px-6 py-4">
             <div className="text-center">
-              <div className="w-12 h-12 mx-auto mb-2 bg-[#C40001] rounded-full flex items-center justify-center animate-fade-in overflow-hidden">
-                <img src="/logo.png" alt="Yatırımlık Yerler" className="w-8 h-8 object-contain" />
+              <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center animate-fade-in">
+                <img src="/logo.png?v=2" alt="Yatırımlık Yerler" className="w-12 h-12 object-contain" />
               </div>
               <h1 className="text-xl font-bold text-[#012169] uppercase">YATIRIMLIK YERLER</h1>
             </div>
@@ -177,7 +177,8 @@ export default function Home() {
       </header>
 
       {/* All Cards */}
-      <div className="max-w-md md:max-w-2xl lg:max-w-2xl mx-auto px-6 py-8 space-y-6">
+      <section className="px-6 py-8">
+        <div className="max-w-md md:max-w-2xl lg:max-w-2xl mx-auto space-y-4">
         
         {/* Arsamı Satmak İstiyorum */}
           <div className="border border-[#E7E9EC] rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300 bg-white">
@@ -187,7 +188,7 @@ export default function Home() {
             >
               <span className="flex items-center gap-3">
                 <span className="text-2xl">🏠</span>
-              <span className="text-lg">Arsamı Satmak İstiyorum</span>
+              <span className="text-lg">Arsanı Bizimle Sat</span>
               </span>
               <span className={`transform transition-transform duration-200 ${openDetails.satici ? 'rotate-180' : ''}`}>
                 ▼
@@ -270,7 +271,7 @@ export default function Home() {
                           <span className="text-sm text-gray-900">Evet</span>
                          </label>
                         <label className="flex items-center">
-                     <input
+                           <input 
                             type="radio"
                             name="hasListing"
                             value="no"
@@ -282,17 +283,17 @@ export default function Home() {
                             className="mr-3 h-5 w-5 text-gray-900 focus:ring-gray-900 border-gray-900 bg-white"
                           />
                           <span className="text-sm text-gray-900">Hayır</span>
-                     </label>
-                   </div>
-                     </div>
-                     )}
+                         </label>
+                           </div>
+                           </div>
+                         )}
 
                   {/* İlan Numarası */}
                   {hasSahibindenListing === true && (
-                   <div>
+                         <div>
                          <label className="block text-xs font-medium text-zinc-700 mb-2">
                         Sahibinden İlan Numarası (Zorunlu) <span className="text-red-500">*</span>
-                     </label>
+                         </label>
                      <input
                         type="text"
                         value={listingNumber}
@@ -305,7 +306,7 @@ export default function Home() {
                         placeholder="10 haneli ilan numarası"
                         className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#012169] bg-white text-gray-900 font-medium"
                         maxLength={10}
-                       required
+                           required
                       />
                       <div className="mt-1 flex justify-between items-center">
                         <span className={`text-xs ${listingNumber.length === 10 ? 'text-green-600' : 'text-red-500'}`}>
@@ -314,7 +315,7 @@ export default function Home() {
                         <span className="text-xs text-gray-500">
                           {listingNumber.length}/10
                         </span>
-                   </div>
+                       </div>
                      </div>
                    )}
 
@@ -324,8 +325,8 @@ export default function Home() {
                       Hizmet bedeli şartlarımızı kabul ediyor musunuz? <span className="text-red-500">*</span>
                      </label>
                     <label className="flex items-start gap-2">
-                       <input
-                         type="checkbox"
+                           <input
+                             type="checkbox"
                         checked={acceptedCommission}
                         onChange={(e) => setAcceptedCommission(e.target.checked)}
                         className="mt-1"
@@ -334,92 +335,131 @@ export default function Home() {
                       <span className="text-xs text-zinc-700">
                         Arsamın dijital pazarlanması konusunda Yatırımlık Yerler'e 3 ay süreyle tam yetki vermeyi ve bu süreçte arsamın satılması durumunda %4+KDV'lik bir hizmet bedeli ödemeyi kabul ediyorum.
                       </span>
-                     </label>
-                   </div>
-
+                         </label>
+                       </div>
+                       
                    <button
                     onClick={handleWhatsAppClick}
                     disabled={!isFormValid()}
                     className={`w-full rounded-xl p-3 text-center font-medium transition-all duration-300 text-sm flex items-center justify-center gap-2 ${
                       isFormValid()
                         ? 'bg-[#012169] text-white hover:bg-[#011a5a]' 
-                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                     }`}
-                   >
+                             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                         }`}
+                       >
                          <span>📱</span>
                     <span>WhatsApp'tan Başvurunu Tamamla</span>
                    </button>
                    </div>
-
+                   
                 {/* FAQ Bölümü */}
-               <div className="mt-6">
-                  <h3 className="text-sm font-semibold text-zinc-800 mb-3">Sık Sorulan Sorular</h3>
-                  <div className="space-y-2">
-                    <details className="group">
-                      <summary className="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="text-xs font-medium text-gray-800">Siz emlakçı mısınız?</span>
-                        <span className="text-gray-500 group-open:rotate-180 transition-transform text-xs">▼</span>
-                     </summary>
-                      <div className="p-3 bg-white border-t">
-                        <p className="text-xs text-gray-600">
-                          Hayır. Biz bir dijital pazarlama ajansıyız. Arsanızı emlakçı değil, iyi pazarlama satar — biz de bu konuda oldukça iyiyiz.
-                        </p>
+                   <div className="mt-6">
+                     <h4 className="font-medium text-sm text-zinc-800 mb-4">Sık Sorulan Sorular</h4>
+                     <div className="space-y-3">
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           1. Siz emlakçı mısınız?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                           Hayır. Biz bir dijital pazarlama ajansıyız.<br />
+                        Arsanızı emlakçı değil, iyi pazarlama satar — biz de bu konuda oldukça iyiyiz.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           2. Hizmet bedeliniz nedir?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                           Sadece satış olursa %4 + KDV hizmet bedeli alınır.<br />
+                        (Siz net satış rakamını belirlersiniz, arsanız %4 eklenmiş brüt satış fiyatı üzerinden pazarlanır)<br />
+                           Alıcıdan hiçbir bedel alınmaz; bu da satışı hızlandırır ve şeffaflık sağlar.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           3. Süreç nasıl başlıyor?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                        Arsanızı bize iletin, ekibimiz 48 saat içinde arsanızı değerlendirsin.<br />
+                           Uygun görülürse 3 ay süreli dijital pazarlama sözleşmesi imzalanır ve süreç başlar.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                        4. Ne hizmeti veriyorsunuz?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                           Biz yalnızca dijital pazarlama ve müşteri yönlendirme hizmeti sunarız.<br />
+                        Satış aracılığı yapmayız; tapu işlemleri arsa sahibine aittir.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           5. Diğer ilanlarımı yayında tutabilir miyim?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                           Evet, bu sizin tercihinizdir.<br />
+                        Ancak 3 ay boyunca Yatırımlık Yerler arsanızın dijital pazarlaması konusunda tek yetkili olur.<br />
+                           Bu sürede satış gerçekleşirse, alıcının nereden geldiğine bakılmaksızın hizmet bedeline hak kazanırız.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           6. Kabul kriterleri nelerdir?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                        Yalnızca yatırım değeri yüksek arsalar kabul edilir.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           7. Süreç gerçekten ücretsiz mi?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                           Evet. Değerlendirme, içerik hazırlığı ve pazarlama tamamen ücretsizdir.<br />
+                        Yalnızca satış gerçekleştiğinde hizmet bedeli doğar. Bu süreçte satış olmazsa herhangi bir ücret ödemek zorunda kalmazsınız.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           8. Satış ne kadar sürer?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                        Kabul edilen arsalar genellikle 4 hafta içinde yatırımcı bulur.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                           9. Satış süreci güvenli mi?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                           Evet. Potansiyel alıcılar size yönlendirilmeden önce gerekli kontroller hukuk departmanımız tarafından yapılır.
+                         </div>
+                       </details>
+                       
+                    <details className="group border border-gray-200 rounded-lg open:border-l-4 open:border-[#012169]">
+                      <summary className="p-3 cursor-pointer text-sm font-medium text-zinc-700 hover:text-[#012169] transition-colors">
+                        10. Neden Yatırımlık Yerler'i seçmeliyim?
+                         </summary>
+                         <div className="px-3 pb-3 text-sm text-zinc-600">
+                        Çünkü biz 200 bin takipçi ve aylık 5 milyondan fazla görüntülenme ile emlak alanında Türkiye'nin en güçlü dijital görünürlüğüne sahibiz.<br />
+                        Arsanızı binlerce yatırımcının önüne ücretsiz çıkarıyor, yalnızca satış olursa kazanıyoruz.
+                         </div>
+                       </details>
                      </div>
-                   </details>
-                   
-                    <details className="group">
-                      <summary className="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="text-xs font-medium text-gray-800">Hizmet bedeliniz nedir?</span>
-                        <span className="text-gray-500 group-open:rotate-180 transition-transform text-xs">▼</span>
-                     </summary>
-                      <div className="p-3 bg-white border-t">
-                        <p className="text-xs text-gray-600">
-                          Sadece satış olursa %4 + KDV hizmet bedeli alınır. Alıcıdan hiçbir bedel alınmaz; bu da satışı hızlandırır ve şeffaflık sağlar.
-                        </p>
-                     </div>
-                   </details>
-                   
-                    <details className="group">
-                      <summary className="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="text-xs font-medium text-gray-800">Süreç nasıl başlıyor?</span>
-                        <span className="text-gray-500 group-open:rotate-180 transition-transform text-xs">▼</span>
-                     </summary>
-                      <div className="p-3 bg-white border-t">
-                        <p className="text-xs text-gray-600">
-                          Arsanızı bize iletin, ekibimiz 48 saat içinde yatırım analizini tamamlar. Uygun görülürse 3 ay süreli dijital pazarlama sözleşmesi imzalanır ve süreç başlar.
-                        </p>
-                     </div>
-                   </details>
-                   
-                    <details className="group">
-                      <summary className="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="text-xs font-medium text-gray-800">Ne hizmet veriyorsunuz?</span>
-                        <span className="text-gray-500 group-open:rotate-180 transition-transform text-xs">▼</span>
-                     </summary>
-                      <div className="p-3 bg-white border-t">
-                        <p className="text-xs text-gray-600">
-                          Biz yalnızca dijital pazarlama ve müşteri yönlendirme hizmeti sunarız. Satış aracılığı yapmayız; tapu işlemleri arsa sahibine aittir.
-                        </p>
-                     </div>
-                   </details>
-                   
-                    <details className="group">
-                      <summary className="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="text-xs font-medium text-gray-800">Kabul kriterleri nelerdir?</span>
-                        <span className="text-gray-500 group-open:rotate-180 transition-transform text-xs">▼</span>
-                     </summary>
-                      <div className="p-3 bg-white border-t">
-                        <p className="text-xs text-gray-600">
-                          Yalnızca yatırım değeri yüksek arsalar kabul edilir. Değer artış potansiyeli ve amortisman süresi gibi kriterler, yapay zekâ destekli bir sistem ile analiz edilir.
-                        </p>
-                     </div>
-                   </details>
-                     </div>
-                     </div>
-             </div>
-           </div>
-         )}
-       </div>
+                   </div>
+                 </div>
+               </div>
+             )}
+          </div>
 
         {/* Telegram ve WhatsApp Grupları */}
           <div className="border border-[#E7E9EC] rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300 bg-white">
@@ -429,7 +469,7 @@ export default function Home() {
             >
               <span className="flex items-center gap-3">
                 <span className="text-2xl">👥</span>
-              <span className="text-lg">Telegram ve WhatsApp Grupları</span>
+              <span className="text-lg">Gruplarımıza Katıl</span>
               </span>
               <span className={`transform transition-transform duration-200 ${openDetails.groups ? 'rotate-180' : ''}`}>
                 ▼
@@ -439,26 +479,34 @@ export default function Home() {
               <div className="px-6 pb-6">
                 <div className="border-t border-[#012169]/10 pt-4">
                   <p className="text-sm text-zinc-600 mb-4 text-justify">
-                  Telegram ve WhatsApp gruplarımıza tamamen ücretsiz katıl, yatırımlık arsa fırsatlarını kaçırma! Şehrini seç ve hemen başla.
+                    Yatırımcı gruplarımıza tamamen ücretsiz katıl, yatırımlık arsa fırsatlarını kaçırma!
                   </p>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-3">
                     <a
-                    href="https://t.me/yatirimlikyerler"
+                      href="https://t.me/yatirimlikyerlercom"
                       target="_blank"
                       rel="noopener noreferrer"
-                    className="block bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded-lg transition-colors text-sm font-medium"
+                      className="block bg-blue-600 hover:bg-blue-700 text-white text-center py-3 px-4 rounded-lg transition-all duration-200 text-sm font-medium"
                     >
-                    📱 Telegram
+                      📱 Telegram Grubumuza Katıl
         </a>
         <a
-                    href="https://wa.me/905551234567"
+                      href="https://www.instagram.com/channel/AbZ69JrdXFHmu1Ou/"
                       target="_blank"
                       rel="noopener noreferrer"
-                    className="block bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg transition-colors text-sm font-medium"
-                  >
-                    💬 WhatsApp
-                      </a>
-                    </div>
+                      className="block bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 text-white text-center py-3 px-4 rounded-lg transition-all duration-200 text-sm font-medium"
+        >
+                      📸 Instagram Grubumuza Katıl
+        </a>
+        <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg transition-all duration-200 text-sm font-medium"
+                    >
+                      📱 WhatsApp Grubumuza Katıl
+                    </a>
+                  </div>
                 </div>
               </div>
             )}
@@ -522,11 +570,11 @@ export default function Home() {
                 <div className="border-t border-[#012169]/10 pt-4">
                    <div className="space-y-4">
                      <p className="text-sm text-zinc-600">
-                       Lütfen her türlü detaylı bilgi için bizlere WhatsApp hattımız üzerinden ulaşın:
+                       Lütfen her türlü detaylı bilgi için bizlere Yatırımlık Evler WhatsApp Hattı üzerinden ulaşın:
                      </p>
                      
                      <a 
-                    href="https://wa.me/905551234567"
+                    href="https://wa.me/905407208080"
                        target="_blank"
                        rel="noopener noreferrer"
                     className="block w-full bg-[#012169] hover:bg-[#011a5a] text-white text-center py-3 px-4 rounded-lg transition-colors text-sm font-medium flex items-center justify-center gap-2"
@@ -541,25 +589,27 @@ export default function Home() {
                      
                      <a 
                     href="mailto:info@yatirimlikevler.com?subject=Kurumsal İşbirliği Hk.&body=Merhabalar"
-                    className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-600 text-center py-2 px-4 rounded-lg transition-colors text-sm font-medium flex items-center justify-center gap-2"
+                    className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-600 text-center py-3 px-4 rounded-lg transition-colors text-sm font-medium flex items-center justify-center gap-2"
                      >
                     <span>✉️</span>
                     <span>Email Gönder</span>
                      </a>
-                </div>
-                </div>
+                   </div>
+                 </div>
               </div>
             )}
           </div>
 
         </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6 mt-12">
-        <div className="max-w-md md:max-w-2xl lg:max-w-2xl mx-auto px-6 text-center">
-          <p className="text-sm text-gray-300">© 2024 Yatırımlık Yerler. Tüm hakları saklıdır.</p>
-          <p className="text-xs text-gray-400 mt-1">Türkiye'nin İlk Premium Arsa Platformu</p>
-        </div>
+      <footer className="bg-white border-t border-[#012169]/10 px-6 py-6">
+        <div className="max-w-md md:max-w-2xl lg:max-w-2xl mx-auto text-center">
+          <p className="text-zinc-500 text-xs leading-relaxed">
+            Yatırımlık Yerler © 2025 — Türkiye'nin İlk Premium Arsa Platformu
+          </p>
+      </div>
       </footer>
     </div>
   );
