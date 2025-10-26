@@ -498,8 +498,8 @@ export default function Home() {
         >
                       📸 Instagram Grubumuza Katıl
         </a>
-        <a
-                      href="#"
+                    <a
+                      href="https://wa.me/905407208080"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block bg-green-600 hover:bg-green-700 text-white text-center py-3 px-4 rounded-lg transition-all duration-200 text-sm font-medium"
